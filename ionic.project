@@ -1,4 +1,13 @@
 {
   "name": "togago-mobile",
-  "app_id": ""
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "coffee",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

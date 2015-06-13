@@ -6,12 +6,14 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var coffee = require('gulp-coffee');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  coffee: ['./www/**/*.coffee']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass','coffee']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -25,10 +27,30 @@ gulp.task('sass', function(done) {
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
+  gulp.src('./www/lib/materialize/sass/materialize.scss')
+    .pipe(sass({
+      errLogToConsole: true
+    }))
+    .pipe(gulp.dest('./www/css/'))
+    .pipe(minifyCss({
+      keepSpecialComments: 0
+    }))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest('./www/css/'))
+    .on('end', done);
 });
+
+gulp.task('coffee', function(done) {
+  gulp.src(paths.coffee, { base: './www/coffee' })
+    .pipe(coffee({bare: true})
+    .on('error', gutil.log.bind(gutil, 'Coffee Error')))
+    .pipe(gulp.dest('./www/js'))
+    .on('end', done)
+})
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.coffee, ['coffee']);
 });
 
 gulp.task('install', ['git-check'], function() {
