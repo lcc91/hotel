@@ -39,4 +39,9 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
       id: 6
     }
   ];
-}).controller('PlaylistCtrl', function($scope, $stateParams) {});
+}).controller('PlaylistCtrl', function($scope, $stateParams) {}).controller('HotelCtrl', function($scope, $stateParams) {
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [[28, 48, 40, 19, 86, 27, 90]];
+  console.log(Chart);
+});

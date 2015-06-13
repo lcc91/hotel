@@ -1,4 +1,5 @@
-angular.module('starter.controllers', []).controller('AppCtrl', ($scope, $ionicModal, $timeout) ->
+angular.module('starter.controllers', [])
+.controller 'AppCtrl', ($scope, $ionicModal, $timeout) ->
   # With the new view caching in Ionic, Controllers are only called
   # when they are recreated or on app start, instead of every page change.
   # To listen for when this page is active (for example, to refresh data),
@@ -36,7 +37,7 @@ angular.module('starter.controllers', []).controller('AppCtrl', ($scope, $ionicM
     return
 
   return
-).controller('PlaylistsCtrl', ($scope) ->
+.controller 'PlaylistsCtrl', ($scope) ->
   $scope.playlists = [
     {
       title: 'Reggae'
@@ -64,4 +65,13 @@ angular.module('starter.controllers', []).controller('AppCtrl', ($scope, $ionicM
     }
   ]
   return
-).controller 'PlaylistCtrl', ($scope, $stateParams) ->
+.controller 'PlaylistCtrl', ($scope, $stateParams) ->
+  return
+.controller 'HotelCtrl', ($scope, $stateParams) ->
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"]
+  $scope.series = ['Series A', 'Series B']
+  $scope.data = [
+    [28, 48, 40, 19, 86, 27, 90]
+  ]
+  console.log Chart
+  return

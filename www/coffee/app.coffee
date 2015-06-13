@@ -5,8 +5,11 @@
 # 'starter.controllers' is found in controllers.js
 angular.module('starter', [
   'ionic'
-  'starter.controllers'
-]).run(($ionicPlatform) ->
+  'chart.js',
+  'ui.bootstrap',
+  'starter.controllers',
+])
+.run(($ionicPlatform) ->
   $ionicPlatform.ready ->
     # Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     # for form inputs)
@@ -17,24 +20,47 @@ angular.module('starter', [
       StatusBar.styleDefault()
     return
   return
-).config ($stateProvider, $urlRouterProvider) ->
-  $stateProvider.state('app',
-    url: '/app'
-    abstract: true
-    templateUrl: 'templates/menu.html'
-    controller: 'AppCtrl').state('app.search',
-    url: '/search'
-    views: 'menuContent': templateUrl: 'templates/search.html').state('app.browse',
-    url: '/browse'
-    views: 'menuContent': templateUrl: 'templates/browse.html').state('app.playlists',
-    url: '/playlists'
-    views: 'menuContent':
-      templateUrl: 'templates/playlists.html'
-      controller: 'PlaylistsCtrl').state 'app.single',
-    url: '/playlists/:playlistId'
-    views: 'menuContent':
-      templateUrl: 'templates/playlist.html'
-      controller: 'PlaylistCtrl'
+)
+.config ($stateProvider, $urlRouterProvider) ->
+  $stateProvider
+    .state 'app',
+      url: '/app'
+      abstract: true
+      templateUrl: 'templates/menu.html'
+      controller: 'AppCtrl'
+    .state 'app.main',
+      url: '/main'
+      views:
+        'menuContent':
+          templateUrl: 'templates/main.html'
+    .state 'app.hotel',
+      url: '/hotel'
+      views:
+        'menuContent':
+          templateUrl: 'templates/hotel.html'
+          controller: 'HotelCtrl'
+    .state 'app.search',
+      url: '/search'
+      views:
+        'menuContent':
+          templateUrl: 'templates/search.html'
+    .state 'app.browse',
+      url: '/browse'
+      views:
+        'menuContent':
+          templateUrl: 'templates/browse.html'
+    .state 'app.playlists',
+      url: '/playlists'
+      views:
+        'menuContent':
+          templateUrl: 'templates/playlists.html'
+          controller: 'PlaylistsCtrl'
+    .state 'app.single',
+      url: '/playlists/:playlistId'
+      views:
+        'menuContent':
+          templateUrl: 'templates/playlist.html'
+          controller: 'PlaylistCtrl'
   # if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise '/app/playlists'
+  $urlRouterProvider.otherwise 'app/main'
   return

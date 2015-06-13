@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicPlatform) {
+angular.module('starter', ['ionic', 'chart.js', 'ui.bootstrap', 'starter.controllers']).run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -13,6 +13,21 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
+  }).state('app.main', {
+    url: '/main',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/main.html'
+      }
+    }
+  }).state('app.hotel', {
+    url: '/hotel',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/hotel.html',
+        controller: 'HotelCtrl'
+      }
+    }
   }).state('app.search', {
     url: '/search',
     views: {
@@ -44,5 +59,5 @@ angular.module('starter', ['ionic', 'starter.controllers']).run(function($ionicP
       }
     }
   });
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('app/main');
 });

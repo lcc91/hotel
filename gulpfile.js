@@ -25,8 +25,7 @@ gulp.task('sass', function(done) {
       keepSpecialComments: 0
     }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
+    .pipe(gulp.dest('./www/css/'));
   gulp.src('./www/lib/materialize/sass/materialize.scss')
     .pipe(sass({
       errLogToConsole: true

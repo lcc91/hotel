@@ -1,1 +1,39 @@
 /* Empty. Add your own CSS if you like */
+.no-mg {
+	margin:0;
+}
+.no-pd {
+	padding:0;
+}
+.hauto {
+	height:auto;
+}
+.wauto {
+	width:auto;
+}
+.whauto {
+	height:auto;
+	width:auto;
+}
+.h100 {
+	height:100%;
+}
+.w100 {
+	width:100%;
+}
+.wh100 {
+	height:100%;
+	width:100%;
+}
+.font-white {
+	color:#fff;
+}
+.font-black {
+	color:#000;
+}
+.app{
+  background-image:url('../img/main.png');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
