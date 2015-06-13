@@ -67,11 +67,19 @@ angular.module('starter.controllers', [])
   return
 .controller 'PlaylistCtrl', ($scope, $stateParams) ->
   return
-.controller 'HotelCtrl', ($scope, $stateParams) ->
-  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"]
-  $scope.series = ['Series A', 'Series B']
+.controller 'HotelCtrl', ($scope, $stateParams,$interval) ->
+  $scope.labels = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  $scope.series = ['Price']
   $scope.data = [
-    [28, 48, 40, 19, 86, 27, 90]
+    [120,132.9,149.3,128.6,130.09]
   ]
-  console.log Chart
+  $scope.randomize = ->
+
+  $interval(->
+    $scope.data = $scope.data.map (data) ->
+      return data.map (y) ->
+        y = y + Math.random() * 10 - 5;
+        return parseInt(y);
+    return
+  ,2000)
   return

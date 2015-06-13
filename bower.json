@@ -11,6 +11,8 @@
     "jquery": "~2.1.4",
     "Chart.js": "~1.0.2",
     "angular-chart.js": "~0.7.1",
-    "angular-bootstrap": "~0.13.0"
+    "angular-bootstrap": "~0.13.0",
+    "lodash": "~3.9.3",
+    "moment": "~2.10.3"
   }
 }

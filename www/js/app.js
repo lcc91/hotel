@@ -28,6 +28,13 @@ angular.module('starter', ['ionic', 'chart.js', 'ui.bootstrap', 'starter.control
         controller: 'HotelCtrl'
       }
     }
+  }).state('app.trade', {
+    url: '/trade',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/trade.html'
+      }
+    }
   }).state('app.search', {
     url: '/search',
     views: {

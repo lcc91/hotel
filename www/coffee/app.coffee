@@ -39,6 +39,11 @@ angular.module('starter', [
         'menuContent':
           templateUrl: 'templates/hotel.html'
           controller: 'HotelCtrl'
+    .state 'app.trade',
+      url: '/trade'
+      views:
+        'menuContent':
+          templateUrl: 'templates/trade.html'
     .state 'app.search',
       url: '/search'
       views:

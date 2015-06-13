@@ -39,9 +39,17 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
       id: 6
     }
   ];
-}).controller('PlaylistCtrl', function($scope, $stateParams) {}).controller('HotelCtrl', function($scope, $stateParams) {
-  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  $scope.series = ['Series A', 'Series B'];
-  $scope.data = [[28, 48, 40, 19, 86, 27, 90]];
-  console.log(Chart);
+}).controller('PlaylistCtrl', function($scope, $stateParams) {}).controller('HotelCtrl', function($scope, $stateParams, $interval) {
+  $scope.labels = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  $scope.series = ['Price'];
+  $scope.data = [[120, 132.9, 149.3, 128.6, 130.09]];
+  $scope.randomize = function() {};
+  $interval(function() {
+    $scope.data = $scope.data.map(function(data) {
+      return data.map(function(y) {
+        y = y + Math.random() * 10 - 5;
+        return parseInt(y);
+      });
+    });
+  }, 2000);
 });

@@ -6,7 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-var coffee = require('gulp-coffee');
+var $ = require('gulp-load-plugins')();
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -41,7 +41,8 @@ gulp.task('sass', function(done) {
 
 gulp.task('coffee', function(done) {
   gulp.src(paths.coffee, { base: './www/coffee' })
-    .pipe(coffee({bare: true})
+    .pipe($.plumber())
+    .pipe($.coffee({bare: true})
     .on('error', gutil.log.bind(gutil, 'Coffee Error')))
     .pipe(gulp.dest('./www/js'))
     .on('end', done)

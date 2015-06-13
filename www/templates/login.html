@@ -1,4 +1,4 @@
-<ion-modal-view>
+<!-- <ion-modal-view>
   <ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
@@ -6,20 +6,31 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
+
   </ion-content>
-</ion-modal-view>
+</ion-modal-view> -->
+
+<div class="modal-header">
+  <h3 class="modal-title">Login</h3>
+</div>
+<div class="modal-body">
+  <form ng-submit="doLogin()">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Username</span>
+        <input type="text" ng-model="loginData.username">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="loginData.password">
+      </label>
+      <label class="item">
+        <button class="button button-block button-positive" type="submit">Log in</button>
+      </label>
+    </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Login</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
